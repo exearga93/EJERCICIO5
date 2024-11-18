@@ -3,13 +3,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
     text-align: center;
-    background-color:red;
+    background-color: darkblue;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 50px;
 }
 
 #display {
@@ -22,16 +23,16 @@ body {
     padding: 10px 20px;
     margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-#startStop {
+#iniciarParar {
     background-color: #4CAF50;
     color: black;
 }
 
-#reset {
+#reiniciar {
     background-color: #f44336;
     color: black;
 }

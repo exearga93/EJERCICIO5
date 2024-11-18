@@ -1,31 +1,33 @@
-let startTime, updatedTime, difference, tInterval;
+let startTime, updatedTime, difference, tInterval, savedTime = 0;
 let running = false;
 
 const display = document.getElementById('display');
-const startStopBtn = document.getElementById('startStop');
-const resetBtn = document.getElementById('reset');
+const iniciarPararBtn = document.getElementById('iniciarParar');
+const reiniciarBtn = document.getElementById('reiniciar');
 
-startStopBtn.addEventListener('click', startStop);
-resetBtn.addEventListener('click', reset);
+iniciarPararBtn.addEventListener('click', iniciarParar);
+reiniciarBtn.addEventListener('click', reiniciar);
 
-function startStop() {
+function iniciarParar() {
     if (!running) {
-        startTime = new Date().getTime();
+        startTime = new Date().getTime() - savedTime;
         tInterval = setInterval(updateTime, 10);  // Actualiza cada 10 milisegundos
-        startStopBtn.innerText = 'Pausar';
+        iniciarPararBtn.innerText = 'PAUSAR';
         running = true;
     } else {
         clearInterval(tInterval);
-        startStopBtn.innerText = 'Iniciar';
+        savedTime = new Date().getTime() - startTime;
+        iniciarPararBtn.innerText = 'INICIAR';
         running = false;
     }
 }
 
-function reset() {
+function reiniciar() {
     clearInterval(tInterval);
     display.innerText = '00:00:00.000';
-    startStopBtn.innerText = 'Iniciar';
+    iniciarPararBtn.innerText = 'INICIAR';
     running = false;
+    savedTime = 0;
 }
 
 function updateTime() {
